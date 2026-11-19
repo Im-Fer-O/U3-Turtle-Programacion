@@ -12,11 +12,15 @@ public class TurtleEj1 {
         int costado = Integer.parseInt(teclado.nextLine());
         System.out.println("cuantos cuadrados horizontales?");
         int cuadradosHorizontal=Integer.parseInt(teclado.nextLine());
+        System.out.println("cuantos cuadrados verticales?");
+        int cuadradosVertical=Integer.parseInt(teclado.nextLine());
+// ----------------------------SECUENCIA --------------------------------------------
 
-        Cuadrado(turtle, costado);
-        espacioHorizontal(turtle,costado);
-        espacioHorizontal(turtle,costado);
+       filaHorizontal(turtle, costado, cuadradosHorizontal);
+       filasVerticales(turtle, costado, cuadradosHorizontal, cuadradosVertical);
 
+// --------------------------------------------------------------------
+        turtle.markCursor(Turtle.Color.BLUE);
         turtle.show(); // <- print
     }
 
@@ -27,7 +31,7 @@ public class TurtleEj1 {
             turtle.turnRight(90);
 
         }
-        turtle.markCursor(Turtle.Color.BLUE); //dejar fuera del bucle
+      //  turtle.markCursor(Turtle.Color.BLUE); //dejar fuera del bucle
 
     }
 
@@ -37,7 +41,7 @@ public class TurtleEj1 {
         turtle.forward(costado + costado/2); // es cost + cost/2 xq el lapiz termina desde donnde empezo
         turtle.turnLeft(90);
         turtle.setPenDown(true);
-        turtle.markCursor(Turtle.Color.YELLOW);
+      //  turtle.markCursor(Turtle.Color.RED);
 
     }
 
@@ -47,12 +51,30 @@ public class TurtleEj1 {
             Cuadrado(turtle,costado);
             espacioHorizontal(turtle, costado);
         }
+       saltoLinea(turtle, costado, cuadradosHorizontal);
+    }
+
+
+    static void saltoLinea (Turtle turtle,int costado,int cuadradosHorizontal){
+        turtle.setPenDown(false);
+        turtle.turnLeft(90);
+        turtle.forward((costado +(costado/2))*cuadradosHorizontal);
+        turtle.turnLeft(90);
+        turtle.forward(costado+(costado/2));
+        turtle.turnRight(180);
+        turtle.setPenDown(true);
+    }
+
+    static void filasVerticales(Turtle turtle, int costado, int cuadradosHorizontal, int cuadradosVertical) {
+        for (int i = 1; i < cuadradosVertical; i++) { // EL CONTADOR EMPIEZA DE 1 !! NO DE CERO
+            filaHorizontal(turtle, costado, cuadradosHorizontal);
+        }
+    }
     }
 
 
 
 
-} // main
 
 
 
