@@ -12,17 +12,14 @@ public class TurtleEj2 {
         System.out.println("numero de  escalones?");
         int escalones = Integer.parseInt(teclado.nextLine());
 
-        //----------------escalon abajo -------------------
+        //---------------- instrucciones  -------------------
         escaleraAbajo(turtle,pixelesHorizontales,pixelesVerticales,escalones);
         turtle.forward(pixelesHorizontales*2);
-        escalonArriba(turtle,pixelesHorizontales,pixelesVerticales);
-       // turtle.turnRight(90);
-       // escaleraArriba(turtle,pixelesHorizontales,pixelesVerticales,escalones);
-
+        escaleraArriba(turtle,pixelesHorizontales,pixelesVerticales,escalones);
 
         //-------------------------------------------
 
-        turtle.markCursor(Turtle.Color.BLUE);
+       // turtle.markCursor(Turtle.Color.BLUE);
         turtle.show();
     } // main
 
@@ -44,14 +41,24 @@ public class TurtleEj2 {
 
     static void escalonArriba(Turtle turtle, int pixelesHorizontales, int pixelesVerticales) {
 
-        turtle.turnRight(90);
-        turtle.forward(pixelesHorizontales);
         turtle.turnLeft(90);
         turtle.forward(pixelesVerticales);
-        turtle.turnLeft(180);
+        turtle.turnRight(90);
+        turtle.forward(pixelesHorizontales);
+
+
+       // turtle.markCursor(Turtle.Color.RED);
+
+
     }
 
+    static void escaleraArriba(Turtle turtle, int pixelesHorizontales, int pixelesVerticales, int escalones) {
+        for (int i = 0; i < escalones; i++) {
+          escalonArriba(turtle,pixelesHorizontales, pixelesVerticales);
 
+        }
+        turtle.turnRight(90);
+    }
 
 
 } //public class TurtleEj2
