@@ -1,9 +1,6 @@
-import jdk.dynalink.beans.StaticClass;
-
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
-public class Ej4 {
+public class TurtleEj4 {
     public static void main(String[] args) {
         Turtle turtle = new Turtle(500, 500);
         Scanner teclado = new Scanner(System.in);
