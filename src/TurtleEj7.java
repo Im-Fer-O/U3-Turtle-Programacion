@@ -5,6 +5,38 @@ public class TurtleEj7 {
 
         Scanner teclado= new Scanner(System.in);
 
+        Turtle turtle = new Turtle(5000, 5000);
+
+
+
+      //  turtle.turnLeft(45);
+
+        for (int t =0; t<100;t++){
+            turtle.forward(4);
+            turtle.turnRight(1);
+        }
+
+        turtle.goTo(0,0);
+
+        for (int t=0;t<100;t++){
+            turtle.forward(4);
+            turtle.turnLeft(1);
+        }
+
+       //turtle.markCursor(Turtle.Color.RED);
+
+        turtle.show();
+    }
+}
+
+
+/*   import java.util.Scanner;
+
+public class TurtleEj7 {
+    public static void main(String[] args) {
+
+        Scanner teclado= new Scanner(System.in);
+
         System.out.println("rev del bucle 30");
         int rev =Integer.parseInt(teclado.nextLine());
 
@@ -42,3 +74,4 @@ public class TurtleEj7 {
     }
 }
 
+   */
