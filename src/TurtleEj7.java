@@ -5,6 +5,9 @@ public class TurtleEj7 {
 
         Turtle turtle = new Turtle(5000, 5000);
         Scanner teclado = new Scanner(System.in);
+        System.out.println("cantidad de hojas?");
+        int cantidadHojas = Integer.parseInt(teclado.nextLine());
+
 
         //------ variables-----------
         int radio = 120; // int
@@ -12,19 +15,25 @@ public class TurtleEj7 {
         double longitudArco = (Math.PI * radio) / 2.0;
         int pasoAvance = Math.max(1, (int) Math.round(longitudArco / pasos));
 
+        int rotacion = 360/ cantidadHojas;
         //------------------------
 
+        turtle.turnLeft(45); //pone hoja recta
 
-        turtle.goTo(0, 0);
-        turtle.turnLeft(45);
+        for(int i=0; i<cantidadHojas; i++){
+            turtle.turnLeft(rotacion);
+            hoja(turtle, pasos, pasoAvance);
 
-        hoja(turtle, pasos, pasoAvance);
+        }
 
+
+
+
+
+        //------------------------
 
         turtle.markCursor(Turtle.Color.RED);
-
         turtle.show();
-
 
     } // public static void main
 
@@ -46,7 +55,7 @@ public class TurtleEj7 {
         }
 
         turtle.goTo(0, 0);
-        turtle.resetAngle();
+
     } // hoja
 } // public class TurtleEj7
 
