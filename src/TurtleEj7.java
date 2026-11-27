@@ -3,19 +3,25 @@ import java.util.Scanner;
 public class TurtleEj7 {
     public static void main(String[] args) {
 
-        Scanner teclado= new Scanner(System.in);
-        System.out.println("longitud hoja 4");
-        int avance= Integer.parseInt(teclado.nextLine());
-
-        System.out.println("curva hoja 1?");
-        int curva =Integer.parseInt(teclado.nextLine());
-
         Turtle turtle = new Turtle(5000, 5000);
+        Scanner teclado = new Scanner(System.in);
 
-        hoja(turtle,avance,curva);
+        //------ variables-----------
+        int radio = 120; // int
+        int pasos = 90;  // 90 pasos * 1 grado = 90 grados (un cuarto de circunferencia)
+        double longitudArco = (Math.PI * radio) / 2.0;
+        int pasoAvance = Math.max(1, (int) Math.round(longitudArco / pasos));
+
+        //------------------------
 
 
-       //turtle.markCursor(Turtle.Color.RED);
+        turtle.goTo(0, 0);
+        turtle.turnLeft(45);
+
+        hoja(turtle, pasos, pasoAvance);
+
+
+        turtle.markCursor(Turtle.Color.RED);
 
         turtle.show();
 
@@ -23,94 +29,24 @@ public class TurtleEj7 {
     } // public static void main
 
 
-    static void hoja (Turtle turtle,int avance,int curva){
+    static void hoja(Turtle turtle, int pasos, int pasoAvance) {
 
-        //  turtle.turnLeft(45);
-        //---------- lado derecho hoja------
-        for (int t =0; t<100;t++){
-            turtle.forward(avance);
-            turtle.turnRight(curva);
+        //--lado derecho---
+        for (int i = 0; i < pasos; i++) {
+            turtle.forward(pasoAvance);
+            turtle.turnRight(1);
         }
 
-        turtle.goTo(0,0);
-        //---------- lado izquierdo hoja------
-        for (int t=0;t<100;t++){
-            turtle.forward(avance);
-            turtle.turnLeft(curva);
+        turtle.goTo(0, 0);
+
+        //--lado izquierdo---
+        for (int i = 0; i < pasos; i++) {
+            turtle.forward(pasoAvance);
+            turtle.turnLeft(1);
         }
 
-    }
-
-
+        turtle.goTo(0, 0);
+        turtle.resetAngle();
+    } // hoja
 } // public class TurtleEj7
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*   import java.util.Scanner;
-
-public class TurtleEj7 {
-    public static void main(String[] args) {
-
-        Scanner teclado= new Scanner(System.in);
-
-        System.out.println("rev del bucle 30");
-        int rev =Integer.parseInt(teclado.nextLine());
-
-        System.out.println("avance vector hoja 10");
-        int avance= Integer.parseInt(teclado.nextLine());
-
-        int anguloAvance =2; // ENCONTRAR LA PROPORCION CON EL ANGULO |/
-      //  int anguloAvance =avance/(5);
-
-        Turtle turtle = new Turtle(500, 500);
-
-
-        turtle.goTo(0, -200);
-
-        turtle.turnLeft(10);
-        for (int i = 0; i < rev; i++) {
-            turtle.turnRight(anguloAvance); //<-----
-            turtle.forward(avance);
-        }
-        turtle.markCursor(Turtle.Color.BLUE);
-
-        turtle.goTo(0, -200);
-
-        turtle.turnRight(10);
-
-        for (int i = 0; i < rev; i++) {
-            turtle.turnLeft(anguloAvance); // <-----
-            turtle.forward(avance);
-        }
-
-
-        turtle.markCursor(Turtle.Color.RED);
-
-        turtle.show();
-    }
-}
-
-   */
